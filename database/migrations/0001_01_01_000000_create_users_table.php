@@ -18,10 +18,11 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('location');
             $table->string('phone');
-            $table->string('email');
+            $table->string('email')->nullable()->unique();;
             $table->string('password');
             $table->string('user_type');
             $table->rememberToken();
+            $table->timestamps();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
