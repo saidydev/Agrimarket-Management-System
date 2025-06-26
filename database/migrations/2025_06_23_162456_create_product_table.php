@@ -12,9 +12,11 @@ return new class extends Migration {
     {
         Schema::create('products', function (Blueprint $table) {
             $table->unsignedBigInteger('product_id')->autoIncrement()->primary();
-            $table->foreignId('user_id')->constrained('users', 'user_id');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('category_id')->constrained('product_categories');
             $table->string('name');
             $table->string('quantity');
+            $table->foreignId('quantity_type_id')->constrained('quantity_types');
             $table->string('description');
             $table->string('price');
             $table->string('photo')->nullable();

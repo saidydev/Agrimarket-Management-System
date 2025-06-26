@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Input extends Model
 {
+    protected $primaryKey = 'input_id';
+
+    public function getRouteKeyName()
+    {
+        return 'input_id';
+    }
+
     protected $fillable = [
         'input_id',
         'user_id',
@@ -15,7 +22,7 @@ class Input extends Model
         'photo'
     ];
 
-    public function user() {
-        return $this->belongsTo(User::class);
+    public function supplier() {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

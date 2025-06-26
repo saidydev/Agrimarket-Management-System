@@ -18,7 +18,6 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'user_id',
         'username',
         'first_name',
         'last_name',
@@ -27,6 +26,7 @@ class User extends Authenticatable
         'phone',
         'user_type',
         'password',
+        'photo'
     ];
 
     /**
@@ -54,5 +54,9 @@ class User extends Authenticatable
 
     public function products() {
         return $this->hasMany(Product::class);
+    }
+
+    public function orders() {
+        return $this->hasMany(Order::class, 'farmer_id', 'id');
     }
 }

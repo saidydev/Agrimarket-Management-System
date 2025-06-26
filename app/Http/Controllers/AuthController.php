@@ -29,9 +29,7 @@ class AuthController extends Controller
                 default => redirect('/'),
             };
         }
-
         return back()->with('error', 'Invalid credentials.');
-
     }
 
     public function logout(Request $request)

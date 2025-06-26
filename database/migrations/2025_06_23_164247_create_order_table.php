@@ -12,8 +12,8 @@ return new class extends Migration {
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->unsignedBigInteger('order_id')->autoIncrement()->primary();
-            $table->foreignId('farmer_id')->constrained('users', 'user_id');
-            $table->foreignId('supplier_id')->constrained('users', 'user_id');
+            $table->foreignId('farmer_id')->constrained('users');
+            $table->foreignId('supplier_id')->constrained('users');
             $table->foreignId('input_id')->constrained('inputs', 'input_id');
             $table->string('quantity');
             $table->string('price');
